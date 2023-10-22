@@ -1,0 +1,97 @@
+/*
+ * Device Tree Source for Pin setting
+ *
+ * Copyright (C) 2023 Renesas Electronics Corporation
+ *
+ * This file is licensed under the terms of the GNU General Public License
+ * version 2.  This program is licensed "as is" without any warranty of any
+ * kind, whether express or implied.
+ */
+
+&pfc {
+    gpio_pins: gpio {
+        pinmux = <RZG2L_PORT_PINMUX(5,1,0)>, /* P5_1 */
+                 <RZG2L_PORT_PINMUX(5,2,0)>; /* P5_2 */
+    };
+    eth0_pins: eth0 {
+        pinmux = <RZG2L_PORT_PINMUX(28,1,1)>, /* ET0_LINKSTA */
+                 <RZG2L_PORT_PINMUX(27,1,1)>, /* ET0_MDC */
+                 <RZG2L_PORT_PINMUX(28,0,1)>, /* ET0_MDIO */
+                 <RZG2L_PORT_PINMUX(24,0,1)>, /* ET0_RXC/RX_CLK */
+                 <RZG2L_PORT_PINMUX(25,0,1)>, /* ET0_RXD0 */
+                 <RZG2L_PORT_PINMUX(25,1,1)>, /* ET0_RXD1 */
+                 <RZG2L_PORT_PINMUX(26,0,1)>, /* ET0_RXD2 */
+                 <RZG2L_PORT_PINMUX(26,1,1)>, /* ET0_RXD3 */
+                 <RZG2L_PORT_PINMUX(24,1,1)>, /* ET0_RX_CTL/RX_DV */
+                 <RZG2L_PORT_PINMUX(27,0,1)>, /* ET0_RX_ERR */
+                 <RZG2L_PORT_PINMUX(20,0,1)>, /* ET0_TXC/TX_CLK */
+                 <RZG2L_PORT_PINMUX(20,2,1)>, /* ET0_TXD0 */
+                 <RZG2L_PORT_PINMUX(21,0,1)>, /* ET0_TXD1 */
+                 <RZG2L_PORT_PINMUX(21,1,1)>, /* ET0_TXD2 */
+                 <RZG2L_PORT_PINMUX(22,0,1)>, /* ET0_TXD3 */
+                 <RZG2L_PORT_PINMUX(23,0,1)>, /* ET0_TX_COL */
+                 <RZG2L_PORT_PINMUX(23,1,1)>, /* ET0_TX_CRS */
+                 <RZG2L_PORT_PINMUX(20,1,1)>, /* ET0_TX_CTL/TX_EN */
+                 <RZG2L_PORT_PINMUX(22,1,1)>; /* ET0_TX_ERR */
+    };
+    irq0_pins: irq0 {
+        pinmux = <RZG2L_PORT_PINMUX(0,0,1)>; /* IRQ0_A */
+    };
+    sdhi1_pins: sdhi1 {
+        pinmux = <RZG2L_PORT_PINMUX(19,0,1)>; /* SD1_CD_B */
+    };
+    scif0_pins: scif0 {
+        pinmux = <RZG2L_PORT_PINMUX(38,1,1)>, /* SCIF0_RXD */
+                 <RZG2L_PORT_PINMUX(38,0,1)>; /* SCIF0_TXD */
+    };
+    usb0_pins: usb0 {
+        pinmux = <RZG2L_PORT_PINMUX(5,0,1)>, /* USB0_OVRCUR_A */
+                 <RZG2L_PORT_PINMUX(4,0,1)>; /* USB0_VBUSEN_A */
+    };
+    usb1_pins: usb1 {
+        pinmux = <RZG2L_PORT_PINMUX(42,1,1)>, /* USB1_OVRCUR_D */
+                 <RZG2L_PORT_PINMUX(42,0,1)>; /* USB1_VBUSEN_D */
+    };
+};
+&gpio {
+    pinctrl-0 = <&gpio_pins>;
+    pinctrl-names = "default";
+
+    status = "okay";
+};
+&eth0 {
+    pinctrl-0 = <&eth0_pins>;
+    pinctrl-names = "default";
+
+    status = "okay";
+};
+&irq0 {
+    pinctrl-0 = <&irq0_pins>;
+    pinctrl-names = "default";
+
+    status = "okay";
+};
+&sdhi1 {
+    pinctrl-0 = <&sdhi1_pins>;
+    pinctrl-names = "default";
+
+    status = "okay";
+};
+&scif0 {
+    pinctrl-0 = <&scif0_pins>;
+    pinctrl-names = "default";
+
+    status = "okay";
+};
+&usb0 {
+    pinctrl-0 = <&usb0_pins>;
+    pinctrl-names = "default";
+
+    status = "okay";
+};
+&usb1 {
+    pinctrl-0 = <&usb1_pins>;
+    pinctrl-names = "default";
+
+    status = "okay";
+};
